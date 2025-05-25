@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: scalable-tracking-number-generator
+  threads:
+    virtual:
+      enabled: true
+  data:
+    redis:
+      host: 192.168.0.47
+      port: 6379
+      timeout: 2000
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+
+tracking:
+  epoch: 1577836800000
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+
+logging:
+  level:
+    com.arishwin.tracking: DEBUG
+    org.springframework.data.redis: INFO
