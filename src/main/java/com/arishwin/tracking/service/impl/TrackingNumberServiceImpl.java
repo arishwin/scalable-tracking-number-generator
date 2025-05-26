@@ -42,8 +42,10 @@ public class TrackingNumberServiceImpl implements TrackingNumberService {
         // 1. generate unique tracking number
         String trackingNumber = generateUniqueTrackingNumber(request);
 
-        // 2. add created time for response
-        OffsetDateTime createdAt = OffsetDateTime.now();
+        // 2. add created time for response, use current time if request doesn't specify
+        OffsetDateTime createdAt = request.getCreatedAt() != null
+                ? request.getCreatedAt()
+                : OffsetDateTime.now();
 
         // 3. build response and return
         return TrackingNumberResponse.builder()
