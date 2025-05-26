@@ -15,6 +15,7 @@ This tracking number generator is designed to be scalable and efficient, making 
 - The worker ID is configured to allow multiple instances of the application to run concurrently without generating duplicate tracking numbers.
 - Redis is used to increment the sequence number for each milisecond call, ensuring that even if multiple requests are made at the same time, each will receive a unique tracking number.
 - The Redis TTL is set to 5 seconds, which means that it can be scalable without consuming too much memory.
+- Uses Java 21 virtual threads to handle high concurrency efficiently.
 
 
 ## Docker Setup
